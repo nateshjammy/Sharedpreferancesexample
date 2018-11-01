@@ -1,5 +1,6 @@
 package com.example.admin.sharedpreferances.Activity;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -56,7 +57,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                 String dataaa = sharedPrefsUtils.getStringValue(EMAIL_ID,"");
+
+                String dataaa = sharedPrefsUtils.getStringValue(EMAIL_ID,"");
                 Toast.makeText(MainActivity.this, dataaa.toString(), Toast.LENGTH_SHORT).show();
 
             }
@@ -89,5 +91,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    public void showToast(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
 
+
+
+    public void changeActivity(Class clz, String pStatus) {
+        Intent i = new Intent(this, clz);
+        startActivity(i);
+    }
 }
